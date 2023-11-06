@@ -7,13 +7,12 @@ on:
 
 jobs:
   check_workflow:
-    runs-on: ubuntu-latest
-    env:
-      CI_CHARTS_ID: ${{ secrets.CI_CHARTS_ID }}
-      CI_CONTAINERS_ID: ${{ secrets.CI_CONTAINERS_ID }}
     strategy:
       matrix:
-        workflow_id: ["${{ env.CI_CHARTS_ID }}", "${{ env.CI_CONTAINERS_ID }}"]
+        include:
+          - workflow_id: "75203144"
+          - workflow_id: "75203145"
+    runs-on: ubuntu-latest
     steps:
       - name: 'Checkout'
         uses: 'actions/checkout@v3'
@@ -21,7 +20,7 @@ jobs:
       - name: Check Workflows
         uses: ./.github/actions/check-workflows
         with:
-          workflow_id: ${{ matrix.workflow_id }}
+          workflow_id: ${{ matrix.workflow }}
 
       - name: Run if both workflows succeeded
         shell: bash
