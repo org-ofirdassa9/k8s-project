@@ -10,8 +10,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - workflow_id: "75203144"
-          - workflow_id: "75203145"
+          - workflow_id: ["75203144", "75203145"]
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout'
