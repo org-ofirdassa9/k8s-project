@@ -1,13 +1,26 @@
 name: 'CD'   
 
 on:
-  workflow_run:
-    workflows: ["Release Charts", "Build and release containers"]
-    types:
-      - completed
+  push:
+    branches:
+      - master
 
 jobs:
+  check_workflow:
+    strategy:
+          matrix:
+            include:
+              - workflow: Release Charts
+              - workflow: Build and release containers
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Workflows
+        uses: ./.github/actions/check-workflows
+        with:
+          workflow: ${{ matrix.workflow }}
+
   deployment:
+    needs: check_workflow
     runs-on: self-hosted
     steps:
     - name: 'Checkout'
