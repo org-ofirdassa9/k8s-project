@@ -14,8 +14,8 @@ runs:
     - name: Check status of workflow
       uses: actions/github-script@v5
       with:
+        github.token: ${{ inputs.token }}
         script: |
-          github.rest.defaults.headers.authorization = "Bearer ${{ inputs.token }}";
           const { data } = await github.rest.actions.listWorkflowRuns({
             owner: context.repo.owner,
             repo: context.repo.repo,
