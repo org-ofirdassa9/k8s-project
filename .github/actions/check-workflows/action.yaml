@@ -1,0 +1,29 @@
+name: "Check Workflows Status"
+description: Check the status of workflows
+inputs:
+  workflow:
+    required: true
+    description: "workflow to check"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Check status of ${{ inputs.workflow }} workflow
+      id: check_workflow
+      uses: actions/github-script@v5
+      with:
+        script: |
+          const { data } = await github.rest.actions.listWorkflowRuns({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            workflow_id: '${{ inputs.workflow }}',
+            branch: 'main',
+            event: 'push',
+            status: 'success'
+          });
+          return data.total_count;
+
+    - name: Run if both workflows succeeded
+      shell: bash
+      run: echo "Both workflows succeeded!"
+      if: steps.check_workflow.outputs.result == '1'
