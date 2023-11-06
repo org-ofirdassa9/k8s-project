@@ -16,7 +16,7 @@ image:
   repository: ofirdassa/k8s_rabbit
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "producer-v2"
+  tag: "producer"
 
 imagePullSecrets: []
 nameOverride: ""

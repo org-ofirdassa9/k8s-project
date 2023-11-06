@@ -8,7 +8,7 @@ image:
   repository: ofirdassa/k8s_rabbit
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "consumer-v2"
+  tag: "consumer"
 
 rabbitmq:
   port: 5672
