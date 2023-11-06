@@ -1,12 +1,9 @@
 name: "Check Workflows Status"
 description: Check the status of workflows
 inputs:
-  workflow:
+  workflow_id:
     required: true
     description: "workflow to check"
-  # token:
-  #   required: false
-  #   description: "Github token that has access to the repo's workflow"
 
 runs:
   using: "composite"
@@ -14,7 +11,6 @@ runs:
     - name: Check status of workflow
       uses: actions/github-script@v5
       with:
-        # github-token: ${{ inputs.token }}
         script: |
           const { data } = await github.rest.actions.listWorkflowRuns({
             owner: context.repo.owner,

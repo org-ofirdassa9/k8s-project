@@ -10,8 +10,8 @@ jobs:
     strategy:
       matrix:
         include:
-          - workflow: Release Charts
-          - workflow: Build and release containers
+          - workflow_id: ${{ secrets.CI_CHARTS_ID }}
+          - workflow_id: ${{ secrets.CI_CONTAINERS_ID }}
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout'
@@ -20,8 +20,7 @@ jobs:
       - name: Check Workflows
         uses: ./.github/actions/check-workflows
         with:
-          workflow: ${{ matrix.workflow }}
-          # token: ${{ secrets.K8S_PROJECT_TOKEN }}
+          workflow_id: ${{ matrix.workflow }}
 
       - name: Run if both workflows succeeded
         shell: bash
