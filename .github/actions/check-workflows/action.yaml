@@ -9,16 +9,16 @@ runs:
   using: "composite"
   steps:
     - name: Check status of workflow
-      id: check_workflow
       uses: actions/github-script@v5
       with:
         script: |
           const { data } = await github.rest.actions.listWorkflowRuns({
             owner: context.repo.owner,
             repo: context.repo.repo,
-            workflow_id: '${{ inputs.workflow }}',
+            workflow_id: 'your-workflow',
             branch: 'main',
             event: 'push',
             status: 'success'
           });
-          return data.total_count > 0 ? 'success' : 'failure';
+          return data.total_count;
+        github-token: ${{ secrets.K8S_PROJECT_SECRET }}
