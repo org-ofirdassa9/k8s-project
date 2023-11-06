@@ -10,4 +10,4 @@ jobs:
     - name: 'Helm upgrade'
       run: |
         helm upgrade -i consumer consumer-chart --set rabbitmq.password="${{ secrets.RABBITMQ_PASSWORD }}" -n rabbitmq --create-namespace
-        helm upgrade -i producer producer-chart --set rabbitmq.password=""${{ secrets.RABBITMQ_PASSWORD }}" --set message="This is a test from Ofir to rabbitmq ns" -n rabbitmq
+        helm upgrade -i producer producer-chart --set rabbitmq.password="${{ secrets.RABBITMQ_PASSWORD }}" --set message="This is a test from Ofir to rabbitmq ns" -n rabbitmq
