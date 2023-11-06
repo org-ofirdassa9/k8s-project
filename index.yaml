@@ -1,0 +1,25 @@
+apiVersion: v1
+entries:
+  rabbit-consumer:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-11-06T20:12:15.288898925Z"
+    description: A Helm chart for Kubernetes
+    digest: d3c0cc0112eb7fc4aa9b90530de09661545838d3c11fe483730596b5332cfb5e
+    name: rabbit-consumer
+    type: application
+    urls:
+    - https://github.com/org-ofirdassa9/k8s-project/releases/download/rabbit-consumer-0.1.0/rabbit-consumer-0.1.0.tgz
+    version: 0.1.0
+  rabbit-producer:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-11-06T20:12:15.475541443Z"
+    description: A Helm chart for Kubernetes
+    digest: 9ea835d062e613b6abfdd25eae5f1b8e9b1015ec12fd157e172dfbe595f96828
+    name: rabbit-producer
+    type: application
+    urls:
+    - https://github.com/org-ofirdassa9/k8s-project/releases/download/rabbit-producer-0.1.0/rabbit-producer-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-11-06T20:12:15.475547043Z"
