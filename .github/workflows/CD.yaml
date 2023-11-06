@@ -10,8 +10,8 @@ jobs:
     strategy:
           matrix:
             include:
-              - workflow: Release Charts
-              - workflow: Build and release containers
+              - workflow: CI-charts
+              - workflow: CI-containers
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout'

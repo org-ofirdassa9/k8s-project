@@ -8,7 +8,7 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Check status of ${{ inputs.workflow }} workflow
+    - name: Check status of workflow
       id: check_workflow
       uses: actions/github-script@v5
       with:
