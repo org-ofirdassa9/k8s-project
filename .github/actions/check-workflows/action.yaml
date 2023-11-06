@@ -15,7 +15,7 @@ runs:
           const { data } = await github.rest.actions.listWorkflowRuns({
             owner: context.repo.owner,
             repo: context.repo.repo,
-            workflow_id: 'your-workflow',
+            workflow_id: '${{ inputs.workflow }}',
             branch: 'main',
             event: 'push',
             status: 'success'
