@@ -22,7 +22,6 @@ jobs:
         uses: ./.github/actions/check-workflows
         with:
           workflow: ${{ matrix.workflow }}
-          token: ${{ secrets.K8S_PROJECT_TOKEN }}
 
       - name: Run if both workflows succeeded
         shell: bash

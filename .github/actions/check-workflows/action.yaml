@@ -4,9 +4,6 @@ inputs:
   workflow:
     required: true
     description: "workflow to check"
-  token:
-    required: false
-    description: "Token with workflow access to the repo - only when the repo is private"
 
 runs:
   using: "composite"
@@ -24,4 +21,3 @@ runs:
             status: 'success'
           });
           return data.total_count;
-        github-token: ${{ inputs.token }}
