@@ -16,7 +16,7 @@ runs:
             owner: context.repo.owner,
             repo: context.repo.repo,
             workflow_id: '${{ inputs.workflow }}',
-            branch: 'main',
+            branch: 'master',
             event: 'push',
             status: 'success'
           });
