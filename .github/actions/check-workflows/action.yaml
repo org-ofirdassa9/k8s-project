@@ -4,6 +4,9 @@ inputs:
   workflow:
     required: true
     description: "workflow to check"
+  token:
+    required: false
+    description: "Github token that has access to the repo's workflow"
 
 runs:
   using: "composite"
@@ -12,6 +15,7 @@ runs:
       uses: actions/github-script@v5
       with:
         script: |
+          github.rest.defaults.headers.authorization = "Bearer ${{ inputs.token }}";
           const { data } = await github.rest.actions.listWorkflowRuns({
             owner: context.repo.owner,
             repo: context.repo.repo,
