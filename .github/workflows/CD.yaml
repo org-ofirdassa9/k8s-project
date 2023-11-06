@@ -20,7 +20,7 @@ jobs:
       - name: Check Workflows
         uses: ./.github/actions/check-workflows
         with:
-          workflow_id: ${{ matrix.workflow }}
+          workflow_id: ${{ matrix.workflow_id }}
 
       - name: Run if both workflows succeeded
         shell: bash
