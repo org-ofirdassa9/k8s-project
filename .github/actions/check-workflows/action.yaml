@@ -21,9 +21,4 @@ runs:
             event: 'push',
             status: 'success'
           });
-          return data.total_count;
-
-    - name: Run if both workflows succeeded
-      shell: bash
-      run: echo "Both workflows succeeded!"
-      if: steps.check_workflow.outputs.result == '1'
+          return data.total_count > 0 ? 'success' : 'failure';
