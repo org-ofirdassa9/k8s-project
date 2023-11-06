@@ -14,7 +14,7 @@ runs:
     - name: Check status of workflow
       uses: actions/github-script@v5
       with:
-        github.token: ${{ inputs.token }}
+        github-token: ${{ inputs.token }}
         script: |
           const { data } = await github.rest.actions.listWorkflowRuns({
             owner: context.repo.owner,
