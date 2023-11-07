@@ -15,12 +15,12 @@ jobs:
         name: consumer
         with:
           workdir: './consumer'
-          pylint: true
           pytest: true
+          pylint: true
         
       - uses: microsoft/action-python@0.7.0
         name: producer
         with:
           workdir: './producer'
-          pylint: true
           pytest: true
+          pylint: true
