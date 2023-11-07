@@ -26,8 +26,8 @@ spec:
                 value: {{ .Values.rabbitmq.username }}
               - name: RABBITMQ_PASSWORD
                 value: {{ .Values.rabbitmq.password }}
-              command: ["python", "producer.py", "-p", "{{ .Values.rabbitmq.port }}", "-s", "{{ .Values.rabbitmq.server }}"]
-              args: ["-m", {{ .Values.message}}]
+              command: ["python", "producer.py"]
+              args: ["-p", {{ .Values.rabbitmq.port }}, "-s", {{ .Values.rabbitmq.server }}, "-m", {{ .Values.message}}]
               resources:
                 {{ toYaml .Values.resources | nindent 16 }}
           {{- with .Values.nodeSelector }}
