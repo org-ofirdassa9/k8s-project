@@ -6,27 +6,6 @@ on:
       - master
 
 jobs:
-  check_workflow:
-    strategy:
-      matrix:
-        include:
-          - workflow_id: "75203144"
-          - workflow_id: "75203145"
-    runs-on: ubuntu-latest
-    steps:
-      - name: 'Checkout'
-        uses: 'actions/checkout@v3'
-
-      - name: Check Workflows
-        uses: ./.github/actions/check-workflows
-        with:
-          workflow_id: ${{ matrix.workflow_id }}
-
-      - name: Run if both workflows succeeded
-        shell: bash
-        run: echo "Both workflows succeeded!"
-        if: ${{ needs.check_workflows.outputs.result == 'success' }}
-
   deployment:
     needs: check_workflow
     runs-on: self-hosted

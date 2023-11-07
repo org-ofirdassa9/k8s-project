@@ -1,7 +1,7 @@
 name: Build and release containers
 
 on:
-  push:
+  pull_request:
     branches:
       - master
 
