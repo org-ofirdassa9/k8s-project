@@ -18,7 +18,7 @@ jobs:
           black: true
           pytest: true
           pylint: true
-          toml: 'consumer/pyproject.tomel'
+          toml: 'consumer/pyproject.toml'
 
       - uses: microsoft/action-python@0.7.0
         name: producer
@@ -27,4 +27,4 @@ jobs:
           black: true
           pytest: true
           pylint: true
-          toml: 'producer/pyproject.tomel'
+          toml: 'producer/pyproject.toml'
