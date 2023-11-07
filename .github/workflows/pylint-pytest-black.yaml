@@ -1,4 +1,4 @@
-name: Pylint and Pytest
+name: Pylint, Pytest and Black formatting
 
 on:
   pull_request:
@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  pylint-pytest:
+  pylint-pytest-black:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -14,7 +14,7 @@ jobs:
       - uses: microsoft/action-python@0.7.0
         name: consumer
         with:
-          workdir: './consumer'
+          workdir: 'consumer'
           black: true
           pytest: true
           pylint: true
@@ -22,7 +22,7 @@ jobs:
       - uses: microsoft/action-python@0.7.0
         name: producer
         with:
-          workdir: './producer'
+          workdir: 'producer'
           black: true
           pytest: true
           pylint: true
