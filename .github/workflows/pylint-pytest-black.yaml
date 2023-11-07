@@ -18,7 +18,9 @@ jobs:
           black: true
           pytest: true
           pylint: true
-        
+          toml: ''
+          pylint_rc: ''
+
       - uses: microsoft/action-python@0.7.0
         name: producer
         with:
@@ -26,3 +28,5 @@ jobs:
           black: true
           pytest: true
           pylint: true
+          toml: ''
+          pylint_rc: ''
