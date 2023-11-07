@@ -15,6 +15,7 @@ jobs:
         name: consumer
         with:
           workdir: './consumer'
+          black: true
           pytest: true
           pylint: true
         
@@ -22,5 +23,6 @@ jobs:
         name: producer
         with:
           workdir: './producer'
+          black: true
           pytest: true
           pylint: true
