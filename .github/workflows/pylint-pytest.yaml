@@ -10,22 +10,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          path: consumer
         
       - uses: microsoft/action-python@0.7.0
         with:
+          workdir: 'consumer'
           pylint: true
           pytest: true
-
-  producer:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          path: producer
         
       - uses: microsoft/action-python@0.7.0
         with:
+          workdir: 'producer'
           pylint: true
           pytest: true
