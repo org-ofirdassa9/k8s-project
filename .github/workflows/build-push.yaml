@@ -1,9 +1,10 @@
 name: Build and release containers
 
 on:
-  pull_request:
-    branches:
-      - master
+  workflow_run:
+    workflows: ["Pylint and Pytest"]
+    types:
+      - completed
 
 jobs:
   docker:
@@ -30,6 +31,7 @@ jobs:
         with:
           context: ./consumer
           push: true
+          platforms: linux/amd64,linux/arm64
           tags: ofirdassa/k8s_rabbit:consumer
       -
         name: Build and push producer
