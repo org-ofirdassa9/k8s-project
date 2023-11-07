@@ -1,3 +1,7 @@
+[project]
+dynamic = ["dependencies"]
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
 [tool.black]
 line-length = 88
 include = '\.pyi?$'  # Include all Python files with extensions .py and .pyi
