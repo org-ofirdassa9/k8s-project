@@ -6,19 +6,21 @@ on:
       - master
 
 jobs:
-  consumer:
+  pylint-pytest:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        
+
       - uses: microsoft/action-python@0.7.0
+        name: consumer
         with:
-          workdir: 'consumer'
+          workdir: './consumer'
           pylint: true
           pytest: true
         
       - uses: microsoft/action-python@0.7.0
+        name: producer
         with:
-          workdir: 'producer'
+          workdir: './producer'
           pylint: true
           pytest: true
