@@ -1,8 +1,8 @@
-name: 'CD'   
+name: 'Deploy helm charts'   
 
 on:
   workflow_run:
-    workflows: ["test-charts"]
+    workflows: ["Release Charts"]
     types:
       - completed
 

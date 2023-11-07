@@ -1,10 +1,9 @@
 name: Lint and Test Charts
 
 on:
-  workflow_run:
-    workflows: ["CI-charts"]
-    types:
-      - completed
+  push:
+    branches:
+      - master
 
 jobs:
   lint-test:
