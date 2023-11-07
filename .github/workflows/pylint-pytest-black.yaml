@@ -16,7 +16,7 @@ jobs:
           python-version: '3.10' 
       - run: |
           cd consumer && pip install -r requirements.txt
-          cd producer && pip install -r requirements.txt
+          cd ../producer && pip install -r requirements.txt
 
       - uses: microsoft/action-python@0.7.0
         name: consumer
