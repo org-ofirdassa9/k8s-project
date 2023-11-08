@@ -2,7 +2,7 @@ name: Build and release containers
 
 on:
   workflow_run:
-    workflows: ["Pylint and Pytest"]
+    workflows: ["Pytest"]
     types:
       - completed
 
