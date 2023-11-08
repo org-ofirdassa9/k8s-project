@@ -1,10 +1,11 @@
 name: Release Charts
 
 on:
-  workflow_run:
-    workflows: ["Lint and Test Charts"]
+  pull_request:
     types:
-      - completed
+      - closed
+    branches:
+      - master
 
 jobs:
   on-success:
