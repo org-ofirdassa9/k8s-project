@@ -2,7 +2,7 @@
 
 import unittest
 from unittest.mock import patch
-from producer import main
+from ..producer import main
 
 
 # pylint: disable=too-few-public-methods
