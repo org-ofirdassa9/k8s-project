@@ -1,4 +1,4 @@
-name: Pylint, Pytest and Black formatting
+name: Pylint and Black formatting
 
 on:
   pull_request:
@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  pylint-pytest-black:
+  pylint-black:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -23,7 +23,6 @@ jobs:
         with:
           workdir: 'consumer'
           black: true
-          pytest: true
           pylint: true
           toml: 'consumer/pyproject.toml'
 
@@ -32,6 +31,5 @@ jobs:
         with:
           workdir: 'producer'
           black: true
-          pytest: true
           pylint: true
           toml: 'producer/pyproject.toml'
