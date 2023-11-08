@@ -1,7 +1,7 @@
 """tests for consumer"""
 
 from unittest import mock
-from consumer import on_message
+from ..consumer import on_message
 
 
 def test_on_message():
