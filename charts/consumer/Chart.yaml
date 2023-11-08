@@ -1,6 +1,8 @@
 apiVersion: v2
 name: rabbit-consumer
 description: A Helm chart for Kubernetes
+maintainers: 
+  - name: Ofir Dassa
 
 # A chart can be either an 'application' or a 'library' chart.
 #
