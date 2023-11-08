@@ -1,12 +1,20 @@
 name: Build and release containers
 
 on:
-  pull_request:
-    branches:
-      - master
+  workflow_run:
+    workflows: ["Pytest"]
+    types:
+      - completed
 
 jobs:
+  on-success:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - run: echo 'The triggering workflow passed'
+
   docker:
+    needs: on-success
     runs-on: ubuntu-latest
     steps:
       -
@@ -30,6 +38,7 @@ jobs:
         with:
           context: ./consumer
           push: true
+          platforms: linux/amd64,linux/arm64
           tags: ofirdassa/k8s_rabbit:consumer
       -
         name: Build and push producer
