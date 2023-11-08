@@ -1,20 +1,22 @@
 name: Build and release containers
 
 on:
-  workflow_run:
-    workflows: ["Pytest"]
+  pull_request:
     types:
-      - completed
+      - closed
+    branches:
+      - master
 
 jobs:
-  on-success:
+  if_merged:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
-      - run: echo 'The triggering workflow passed'
+    - run: |
+        echo The PR was merged
 
   docker:
-    needs: on-success
+    needs: if_merged
     runs-on: ubuntu-latest
     steps:
       -
