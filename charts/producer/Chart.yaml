@@ -1,8 +1,8 @@
 apiVersion: v2
 name: rabbit-producer
 description: A Helm chart for Kubernetes
-maintainers: 
-  - name: Ofir Dassa
+maintainers:
+  - name: ofirdassa9
 
 # A chart can be either an 'application' or a 'library' chart.
 #
