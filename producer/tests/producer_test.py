@@ -4,7 +4,6 @@ import unittest
 from unittest.mock import patch
 from ..producer import main
 
-
 # pylint: disable=too-few-public-methods
 # Create a mock RabbitMQ server for testing
 class MockRabbitMQServer:
@@ -38,7 +37,7 @@ class TestProducer(unittest.TestCase):
         print(f"expected_output is: {expected_output}")
 
         # Mock the pika.BlockingConnection class to avoid actual connection attempts
-        with patch("producer.pika.BlockingConnection"):
+        with patch("pika.BlockingConnection"):
             with patch("sys.argv", ["producer.py"] + args):
                 main()
 
@@ -48,7 +47,7 @@ class TestProducer(unittest.TestCase):
         args = ["-p", str(port), "-s", server, "-m", message, "-r", str(repeat)]
 
         # Mock the pika.BlockingConnection class to avoid actual connection attempts
-        with patch("producer.pika.BlockingConnection"):
+        with patch("pika.BlockingConnection"):
             with patch("sys.argv", ["producer.py"] + args):
                 with self.assertRaises(SystemExit) as excinfo:
                     main()
@@ -60,7 +59,7 @@ class TestProducer(unittest.TestCase):
         args = ["-p", str(port), "-s", server, "-m", message, "-r", str(repeat)]
 
         # Mock the pika.BlockingConnection class to avoid actual connection attempts
-        with patch("producer.pika.BlockingConnection"):
+        with patch("pika.BlockingConnection"):
             with patch("sys.argv", ["producer.py"] + args):
                 with self.assertRaises(SystemExit) as excinfo:
                     main()
