@@ -26,7 +26,12 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }} # only needed if version is 'latest'
       id: install
 
+    - name: 'Helm repo add & update'
+      run: |
+        helm repo add k8s-project https://k8s-project.parligator.com
+        helm repo update
+
     - name: 'Helm upgrade'
       run: |
-        helm upgrade -i consumer charts/consumer --set rabbitmq.password="${{ secrets.RABBITMQ_PASSWORD }}" -n rabbitmq --create-namespace
-        helm upgrade -i producer charts/producer --set rabbitmq.password="${{ secrets.RABBITMQ_PASSWORD }}" --set message="This is a test from Ofir to rabbitmq ns" -n rabbitmq
+        helm upgrade -i consumer k8s-project/rabbit-consumer --set rabbitmq.password="${{ secrets.RABBITMQ_PASSWORD }}" -n rabbitmq --create-namespace
+        helm upgrade -i producer k8s-project/rabbit-producer --set rabbitmq.password="${{ secrets.RABBITMQ_PASSWORD }}" --set message="This is a test from Ofir to rabbitmq ns" -n rabbitmq
